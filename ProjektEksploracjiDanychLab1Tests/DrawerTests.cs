@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
-using Accord.Controls;
-using Accord.Statistics.Visualizations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjektEksploracjiDanychLab1;
 
@@ -12,7 +9,6 @@ namespace ProjektEksploracjiDanychLab1Tests
     public class DrawerTests
     {
         private SortedDictionary<double, int> sortedDictionary = new SortedDictionary<double, int>();
-        private readonly double[] _histogramData = {1.0, 2.0, 3.0, 2.0, 4.0, 5.0, 4.0, 1.0, 10.0};
 
         [TestMethod()]
         public void DrawChartTest()
@@ -22,29 +18,6 @@ namespace ProjektEksploracjiDanychLab1Tests
             drawer.DrawChart("jj.bmp", sortedDictionary);
             Assert.IsNotNull(drawer);
         }
-
-        [TestMethod]
-        public void AccordHistogramTest()
-        {
-            HistogramView histogramView = new HistogramView
-            {
-                NumberOfBins = 6,
-                DataSource = _histogramData,
-                AutoSize = true,
-                BinWidth = 3
-            };
-            
-            //HistogramBox.Show(histogramView.Histogram, "xd");
-            HistogramBox.Show(_histogramData, "xd");
-            //Thread.Sleep(10000); 
-            Assert.IsTrue(true);
-            Console.ReadLine();
-        }
-
-        //public void prepareHistogramData()
-        //{
-        //    double[] array = new[] {};
-        //}
 
         private void prepareData()
         {
